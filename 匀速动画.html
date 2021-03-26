@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/匀速动画.css">
+</head>
+<body>
+    <div class="box">
+    <button id="start_500">开始到500</button>
+    <button id="start_200">开始到200</button>
+    <button id="stop">停止</button>
+    <div class="square"></div>
+    <div class="fiveHundred"></div>
+    <div class="twoHundred"></div>
+
+    </div>
+<script>
+    let button1=document.querySelector("#start_500");
+    let button2=document.querySelector("#start_200");
+    let button3=document.querySelector("#stop");
+    let oSquare=document.querySelector(".square");
+    let timerId=null;
+    // 这个要配合那个多次点击bug,否则它获取不到数值
+    button1.onclick=function(){
+            linearAnimation(oSquare,500);
+    }
+    button2.onclick=function(){
+            linearAnimation(oSquare,200);
+    }
+    button3.onclick=function(){
+        clearInterval(timerId);
+    }
+    
+    function linearAnimation(oSquare,num){
+            clearInterval(timerId);
+            // 防止多次点击按钮没达到定时器关闭的条件出现的bug
+            timerId=setInterval(function(){
+            // let num=500;
+            let startSpace=parseInt(oSquare.style.marginLeft||0);
+            // 设定每次增加步长后的初始值
+
+            // let buchang=num>startSpace?13:-13;
+            // 匀速动画的步长
+            let buchang=(num-startSpace)*0.3;
+            // 缓速动画的步长
+            // 判断方块是向左走还是像右走
+
+            startSpace+=buchang;
+            
+            // if(Math.abs(num-startSpace)<=Math.abs(buchang))
+            // 匀速动画的步长
+            if(Math.abs(Math.floor(buchang))<=1)
+            // 缓速动画的步长
+            {
+                // 由于步长不是整十，所以当方块靠近重点或越过终点的时候要归位，并且关闭定时器停止下来
+                startSpace=num;
+                clearInterval(timerId);
+            }
+
+            oSquare.style.marginLeft=startSpace+"px";
+            // 修改方块的marginleft
+        },50);
+
+    }
+    
+
+
+</script>
+</body>
+</html>

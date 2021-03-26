@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/关闭广告.css">
+    <link rel="stylesheet" href="fonts/iconfont.css">
+</head>
+<body>
+    <!-- 广告关闭 -->
+    <!-- <div>
+        <img src="images/sina-ad.png" alt="">
+        <img src="images/close.jpg" alt="">
+    </div> -->
+
+    <!-- 橱窗展示 -->
+    <!-- <div>
+        <img src="images/ad1.jpg" alt="">
+        <ul>
+            <li><img src="images/ad2.jpg" alt=""></li>
+            <li><img src="images/ad3.jpg" alt=""></li>
+            <li><img src="images/ad4.jpg" alt=""></li>
+            <li><img src="images/ad5.jpg" alt=""></li>
+            <li><img src="images/ad6.jpg" alt=""></li>
+        </ul>
+    </div> -->
+
+    <!-- 简易轮播图 -->
+    <!-- <div>
+        <img src="images/ad1.jpg
+        " alt="">
+        <p><span>&lt;</span><span>&gt;</span></p>
+    </div>-->
+
+    <!-- 移入移出效果 -->
+    <!-- <div>
+        <ul>
+            <li class="iconfont icon-qq"></li>
+            <li class="iconfont icon-weixin"></li>
+            <li class="iconfont icon-youjian"></li>
+        </ul>
+        <div class="subMenu">
+            <p>微信二维码</p>
+            <img src="images/qrcode.png" alt="">
+        </div>
+    </div> -->
+
+    <!-- 商品展示效果 -->
+    <!-- <div>
+        <img src="images/pic1.jpg" alt="">
+        <ul>
+             <li><img src="images/pic1.jpg" alt=""></li>   
+             <li><img src="images/pic2.jpg" alt=""></li>   
+             <li><img src="images/pic3.jpg" alt=""></li>   
+             <li><img src="images/pic4.jpg" alt=""></li>   
+             <li><img src="images/pic5.jpg" alt=""></li>   
+        </ul>
+    </div> -->
+
+        <!-- tab菜单 -->
+        <!-- <div class="box">
+            <ul class="top">
+                <li class="current" index="0">11</li>
+                <li index="1">22</li>
+                <li index="2">33</li>
+            </ul>
+            <div class="bottom">
+                <div>11111111111111111111</div>
+                <div>222222222222222222</div>
+                <div>33333333333333333</div>
+            </div>
+        </div> -->
+
+        <!-- 面向对象tab -->
+        <!-- <div id="tab">
+            <ul id="tab_top">
+                <li class="tab-item selected">小红</li>
+                <li class="tab-item">小明</li>
+                <li class="tab-item">小兰</li>
+            </ul>
+            <div id="tab_bottom">
+                <div  class="tab-content">小红的内容</div>
+                <div  class="tab-content">小明的内容</div>
+                <div  class="tab-content">???????</div>
+            </div>
+        </div> -->
+        
+        <!-- 全选反选 -->
+        <!-- <div class="music">
+            <h3>前端菜鸟</h3>
+            <ul>
+                <li><input type="checkbox">书法家哦v地方艾斯芬尼就发生分解 就发到付</li>
+            </ul>
+            <ul>
+                <li><input type="checkbox">书法家哦v地方艾斯芬尼就发生分解 就发到付</li>
+            </ul>
+            <ul>
+                <li><input type="checkbox">书法家哦v地方艾斯芬尼就发生分解 就发到付</li>
+            </ul>
+            <ul>
+                <li><input type="checkbox">书法家哦v地方艾斯芬尼就发生分解 就发到付</li>
+            </ul>
+            <ul>
+                <li><input type="checkbox">书法家哦v地方艾斯芬尼就发生分解 就发到付</li>
+            </ul>
+            <div class="button">
+                <button id="all_selected">全选</button>
+                <button id="cancel_selected">取消</button>
+                <button id="reverse_selected">反选</button>
+            </div>
+        </div>
+  -->
+
+        <!-- 日期秒杀效果 -->
+        <!-- <div class="box">
+            <h3>限时秒杀</h3>
+            <i class="iconfont icon-lightningbshandian"></i>
+            <p>距离下一场还有</p>
+            <div class="time">
+                <div id="hour">00</div>b
+                <div id="minute">00</div>
+                <div id="second">00</div>
+            </div>
+
+
+        </div> -->
+
+
+        <!-- 时钟 -->
+        <!-- <div class="clock">
+                <div class="time">
+                    <div class="hour"></div>
+                    <div class="minute"></div>
+                    <div class="second"></div>
+                </div>
+           
+        </div>
+ -->
+
+        <!-- 滑动动画 -->
+        <div class="box">
+            <div class="box-top"></div>
+            <div class="box-bottom"></div>
+            <img src="images/long.gif" alt="">
+
+        </div>
+        
+
+
+
+
+
+
+
+
+    <script>
+        // 广告关闭
+        // let oclo=document.querySelector("div>img:last-child");
+        // let oDiv=document.querySelector("div");
+        // oclo.onclick=function(){
+        //     oDiv.parentNode.removeChild(oDiv);
+        // }
+
+        // 橱窗展示
+    //     let img=document.querySelector("div>img");
+    //     let navs=document.querySelectorAll("li>img");
+    //    for (let nav of navs){
+    //        nav.onclick=look;
+    //     //    注意look不要加括号
+    //    }
+    //    function look(){
+    //         img.src=this.src;
+    //        }
+
+        // // 简易轮播图
+        // let a=document.querySelector("div>img");
+        // let oleftbotton=document.querySelector("p>span:first-child");
+        // let orightbotton=document.querySelector("p>span:last-child");
+        // let images=[
+        //     "images/ad1.jpg",
+        //     "images/ad2.jpg",
+        //     "images/ad3.jpg",
+        //     "images/ad4.jpg",
+        //     "images/ad5.jpg",
+            
+        // ]
+        // let currentIndex=0;
+        // let maxIndex=images.length-1;
+        // oleftbotton.onclick=function(){
+        //     currentIndex--;
+        //     if(currentIndex<0){
+        //         currentIndex=maxIndex;
+        //     }
+        //     a.src=images[currentIndex];
+        // }
+            
+        // orightbotton.onclick=function(){
+        //     currentIndex++;
+        //     if(currentIndex>maxIndex){
+        //         currentIndex=0;
+        //     }
+        //     a.src=images[currentIndex];
+        // }
+        
+        // // 移入移出事件
+        // let osub=document.querySelector(".subMenu")
+        // let oDiv=document.querySelector(".icon-weixin");
+        // oDiv.onmouseenter=function(){
+        //     osub.style.display="block";
+
+        // }
+        // oDiv.onmouseleave=function(){
+        //     osub.style.display="none";
+
+        // }
+
+        // 商品展示               
+        // let obig=document.querySelector("div>img");
+        // let osmalls=document.querySelectorAll("li>img");
+        // for(let osmall of osmalls){
+        //     osmall.onmouseenter=function(){
+        //         osmall.parentNode.className="border";
+        //         obig.src=osmall.src;
+        //     }
+        // }
+        // for(let osmall of osmalls){
+        //     osmall.onmouseleave=function(){
+        //         osmall.parentNode.className="";
+                
+        //     }
+        // }
+
+        // tab菜单
+        // let otops=document.querySelectorAll("li");
+        // let obottoms=document.querySelectorAll(".bottom>div");
+        // let lastIndex=0;
+        // for(let i=0;i<=otops.length;i++){
+        //     let otop=otops[i];
+            
+        //     otop.onclick=function(){
+        //         // 清空上一次
+        //         let lastotop=otops[lastIndex];
+        //         lastotop.className=""
+        //         let lastobottom=obottoms[lastIndex];
+        //         lastobottom.style.display="none";
+
+
+        //         this.className="current";
+        //         // let index=otop.getAttribute("index");
+        //         let obottom=obottoms[i];
+        //         obottomb.style.display="block";
+
+        //         lastIndex=i;
+        //     }
+        
+        // }
+
+          // 面向对象tab菜单
+            
+        //   class Tab{
+        //       constructor() {
+        //           this.oTabitems=document.querySelectorAll(".tab-item");
+        //           this.oTabcontents=document.querySelectorAll(".tab-content");
+        //           this.previousIndex=0;
+                  
+        //       }
+        //       addClickEvent(){
+        //           for(let i=0;i<=this.oTabitems.length-1;i++){
+        //               let oTabitem=this.oTabitems[i];
+        //               oTabitem.onclick=()=>{
+        //                 //   清除上一次的
+        //                 let preotabitem=this.oTabitems[this.previousIndex];
+        //                 preotabitem.className=preotabitem.className.replace("selected","");
+        //                 let preotabcontent=this.oTabcontents[this.previousIndex];
+        //                 preotabcontent.className=preotabcontent.className.replace("selected","");
+        //                 preotabcontent.style.display="none";
+
+
+
+        //                 //  生成新的一次
+        //                oTabitem.className=oTabitem.className+" selected";
+        //                let oTabcontent=this.oTabcontents[i];
+        //                oTabcontent.className=oTabcontent.className+" selected";
+        //                oTabcontent.style.display="block";
+        //                this.previousIndex=i;
+
+        //               }               }
+        //       }
+        //   }
+        //          let tab=new Tab();
+        //          tab.addClickEvent();
+      
+            
+            // 全选反选
+        //     let oInputs=document.querySelectorAll("input");
+        //     let oAllSelect=document.querySelector("#all_selected");
+        //     let oCancelSelect=document.querySelector("#cancel_selected");
+        //     let oReverseSelect=document.querySelector("#reverse_selected");
+
+        //     oAllSelect.onclick=function(){
+        //         // o.forEach(item => {
+                    
+        //         // });
+        //         oInputs.forEach(function(item){
+        //             item.checked=true;
+        //         })
+        //     }
+            
+        //     oCancelSelect.onclick=function(){
+            
+        //         oInputs.forEach(function(item){
+        //             item.checked=false;
+        //         })
+        //     }
+        //     oReverseSelect.onclick=function(){
+            
+        //     oInputs.forEach(function(item){
+        //         item.checked=!item.checked;
+        //     })
+        // }
+
+
+    //     // 限时秒杀
+    //     let oHour=document.querySelector("#hour");
+    //     let oMinute=document.querySelector("#minute");
+    //     let oSecond=document.querySelector("#second");
+    //     let oFutureTime=new Date("2020-9-19 23:00:00");
+        
+    //     setInterval(function(){
+    //         setTime(oFutureTime);
+    //     },1000);
+    //     function setTime(oFutureTime){
+    //         let obj=getDifferTime(oFutureTime);
+    //         oHour.innerText=obj.hour;
+    //         oMinute.innerText=obj.minute;
+    //         oSecond.innerText=obj.second;
+    //     }
+        
+
+
+        function getDifferTime(remDate, curDate = new Date()) {
+        // 1.得到两个时间之间的差值(毫秒)
+        let differTime = remDate - curDate;
+        // let differTime = remDate.valueOf() - curDate.valueOf();
+        // 2.得到两个时间之间的差值(秒)
+        let differSecond = differTime / 1000;
+        // 3.利用相差的总秒数 / 每一天的秒数 = 相差的天数
+        let day = Math.floor(differSecond / (60 * 60 * 24));
+        day = day >= 10 ? day : "0" + day;
+        // 4.利用相差的总秒数 / 小时 % 24;
+        let hour = Math.floor(differSecond / (60 * 60) % 24);
+        hour = hour >= 10 ? hour : "0" + hour;
+        // 5.利用相差的总秒数 / 分钟 % 60;
+        let minute = Math.floor(differSecond / 60 % 60);
+        minute = minute >= 10 ? minute : "0" + minute;
+        // 6.利用相差的总秒数 % 秒数
+        let second = Math.floor(differSecond % 60);
+        second = second >= 10 ? second : "0" + second;
+        return {
+            day: day,
+            hour: hour,
+            minute: minute,
+            second: second,
+        }
+    }
+    
+    
+    // // 时钟效果
+    // let oHour=document.querySelector(".hour");
+    // let oMinute=document.querySelector(".minute");
+    // let oSecond=document.querySelector(".second");
+    // // let oDate=new Date();
+    // // 要不断获取时间所以放在定时器里面
+    
+
+    // setInterval(function(){
+    //     let oDate=new Date();
+    //     oHour.style.transform=`rotate(${oDate.getHours()*30}deg)`;
+    //     oMinute.style.transform=`rotate(${oDate.getMinutes()*6}deg)`;
+    //     oSecond.style.transform=`rotate(${oDate.getSeconds()*6}deg)`;
+    //     // 注意格式
+    // }),1000; 
+
+    // 
+
+    
+    let oBoxTop=document.querySelector(".box-top");
+    let oBoxBottom=document.querySelector(".box-bottom");
+    let oImg=document.querySelector("img");
+    let oBox=document.querySelector(".box");
+    let maxNum=parseInt(getComputedStyle(oBox).height)-parseInt(getComputedStyle(oImg).height);
+
+  
+
+    oBoxTop.onmouseenter=function(){
+         move(-10);
+       
+    };
+    oBoxBottom.onmouseenter=function(){
+         move(10);
+       
+    };
+    oBoxTop.onmouseleave=function(){
+        clearInterval(timer);
+    }
+    oBoxBottom.onmouseleave=function(){
+        clearInterval(timer);
+    }
+
+
+
+    function move(y){
+    timer=setInterval(function(){    
+
+    let officeSet=parseInt(oImg.style.top)||0;
+    // 注意因为每次都要给它赋值所以要写在定时器里面
+        if((y<0 && officeSet<=maxNum)||(y>0&&officeSet>=0)){        
+        clearInterval(timer);
+        return;      
+    }
+    oImg.style.top=officeSet+y+"px";
+
+    },10);}   
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html> 

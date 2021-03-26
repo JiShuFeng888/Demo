@@ -1,0 +1,74 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+figure{
+    width: 800px;
+    height: 500px;
+    margin:100px auto;
+    border: 1px solid #000;
+    /* background-color: brown; */
+    position: relative;
+    background: url(../images/loading.gif) no-repeat center center;
+    background-color:rgba(36, 187, 254, 1);
+}
+figure figcaption{
+    background: #cccccc;
+    text-align: center;
+    /* color: #fff; */
+}
+figure video{
+    display: none;
+    width: 100%;
+}
+figure .control{
+    width: 100%;
+    height: 50px;
+    background: #cccccc;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+}
+.control #play{
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+}
+.control .progress{
+    width: 500px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 50px;
+    overflow: hidden;
+} 
+.control .progress .line{
+    background:brown;
+    height: 20px;
+    width: 0;
+}
+
+.control .time{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 570px;
+    color: #fff;
+}
+.control #full{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 770px;
+    color: #fff;
+    font-size: 20px;
+}

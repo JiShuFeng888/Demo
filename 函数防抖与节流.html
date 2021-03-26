@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/函数防抖与节流.css">
+    <title>Document</title>
+    <script src="js/tools.js"></script>
+</head>
+<body>
+    <input type="text">
+    <div></div>
+    
+
+
+    <script>
+        let Input=document.querySelector("input");
+        let oDiv=document.querySelector("div");
+
+        Input.oninput=debounce(function(){
+            console.log("牛逼！");
+        })
+
+        function resetSize(){
+            let {width,height}=getScreen();
+            oDiv.style.width=width/2+"px";
+            oDiv.style.height=height/2+"px";
+            console.log(width,height);
+            console.log(oDiv.style.width);
+        }
+        resetSize();
+
+        // window.onresize=debounce(function(event){
+        //     // 注意这段书写格式
+        //     resetSize();
+        // },2000);
+
+        window.onresize=throttle(function(){
+            resetSize();
+        },1000)
+
+
+        // function debounce(fn,delay){
+        //     let timerId=null;
+        //     return function(){
+        //         let self=this;
+        //         let args=arguments;
+        //         timerId&&clearTimeout(timerId);
+        //         timerId=setTimeout(function(){
+        //         fn.apply(self,args);
+        //     },delay||1000);
+        // }
+        // }
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小鱼打字</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body,html{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            background: url(images/bg.jpg) no-repeat center center;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+        }
+        img{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .yl{
+            background: url(images/yy.png) no-repeat;
+            position:absolute;
+            width: 300px;
+            height: 300px;
+            top: 800px;
+        }
+        .yl>span{
+            left: 70px;
+            top: 200px;
+            font-size: 60px;
+            position: absolute;
+            font-weight: bold;
+            text-shadow: 5px 5px 5px #3e437a;
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <img src="images/play.png" alt="">
+    <audio src="media/bg.ogg" loop autoplay></audio>
+    <!-- <div class="yl"><span>m</span></div> -->
+   
+
+  
+
+
+
+
+
+
+
+
+
+    <script>
+        let oImg=document.querySelector("img");
+        let oAudio=document.querySelector("audio");
+        let list=[];
+        oImg.onclick=function(){
+            // 关闭按钮，开启音乐
+            oAudio.play();
+            oImg.parentNode.removeChild(oImg);
+            // 幽灵设置
+            setInterval(function () {
+                let a=new Youling();
+                a.fly();
+                list.push(a);
+
+            },500);
+        }
+        document.body.onkeydown=function(event){
+            let result=event.key.toUpperCase();
+            let oDiv=document.querySelector("."+result);
+            let currentlist=list.findIndex(function (currentvalue) {
+                return currentvalue.oDiv===oDiv;    
+            });
+            if (currentlist==-1){
+                return;
+            }else{
+                let b=list[currentlist];
+                b.closeYouling();
+                list.splice(currentlist,1);
+
+            }
+                
+
+        }
+
+    
+        class Youling{
+            constructor(){
+                // 1.创建div并且设置样式
+                let oDiv=document.createElement("div");
+                oDiv.className="yl";
+                oDiv.style.left=Math.random()*1100+"px";
+                // 注意这里！！！！！！！！！！未定义下面fly都接受不到值
+                oDiv.style.top="800px";
+                // 2.创建span并设置内容
+                let oSpan=document.createElement("span");
+                let zimu=this.getRandomArbitrary();
+                oSpan.innerText=zimu;
+                oDiv.className="yl "+zimu;
+                // 3.把span添加到Div中
+                oDiv.appendChild(oSpan);
+                // 4.将div添加到Body中
+                document.body.appendChild(oDiv);
+                this.oDiv=oDiv;
+            }
+            fly(){ 
+                let offset = parseInt(this.oDiv.style.top);
+                // let self=this;
+                // this.clo=setInterval(function(){
+                //     offset-=20;
+                //     if(offset<=-300){
+                //         self.closeYouling();
+                //         // 注意定时器里面的this是指的是windows的!
+                //     }
+                //     self.oDiv.style.top=offset + "px";
+                //     // 注意这里
+                // },200) ;
+                this.clo=setInterval(
+                    ()=>{
+                    offset-=20;
+                    if(offset<=-300){
+                        this.closeYouling();
+                    }
+                    this.oDiv.style.top=offset + "px";
+                    // 注意这里
+                },200) ;
+
+            }
+            getRandomArbitrary() {
+            let num=Math.random() * (90 - 65) + 65;
+            return String.fromCharCode(num);
+        }
+
+            closeYouling() {
+            // 关闭资源
+            document.body.removeChild(this.oDiv);
+            clearInterval(this.clo);
+
+
+            
+            
+        }
+        
+        
+        }
+
+        
+
+
+
+
+    </script>
+</body>
+</html>

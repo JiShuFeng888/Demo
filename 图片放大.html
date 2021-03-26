@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/图片放大.css">
+</head>
+<body>
+    <div class="box">
+        <div class="smallPicture">
+            <span></span>
+        </div>
+        <div class="bigPicture">
+            <img src="images/big.jpg" alt="">
+        </div>
+    </div>
+    
+
+
+
+    <script>
+        let oSmall=document.querySelector(".smallPicture");
+        let oBig=document.querySelector(".bigPicture");
+        let oSpan=document.querySelector("span");
+        let oBox=document.querySelector(".box");
+        let oBigImg=document.querySelector(".bigPicture>img");
+
+        oSmall.onmouseenter=function(){
+            oBig.style.display="block";
+            oSpan.style.display="block";
+        }
+        oSmall.onmouseleave=function(){
+            oBig.style.display="none";
+            oSpan.style.display="none";
+        }
+        oSmall.onmousemove=function(event){
+            event=event||window.event;
+            // 1.获取鼠标当前在小图中的位置
+            let mouseX=event.pageX-oSmall.offsetLeft;
+            let mouseY=event.pageY-oSmall.offsetTop;
+
+            // 2.重新计算鼠标位置
+            mouseX=mouseX-oSpan.offsetWidth/2;
+            mouseY=mouseY-oSpan.offsetHeight/2;
+
+            // 2.5安全校验
+            mouseX=mouseX<0?0:mouseX;
+            mouseY=mouseY<0?0:mouseY;
+            let maxMouseX=oSmall.offsetWidth-oSpan.offsetWidth;
+            let maxMouseY=oSmall.offsetHeight-oSpan.offsetHeight;
+            mouseX=mouseX>maxMouseX?maxMouseX:mouseX;
+            mouseY=mouseY>maxMouseY?maxMouseX:mouseY;
+
+            // 3.把鼠标位置给蒙版
+            oSpan.style.left=mouseX+"px";
+            oSpan.style.top=mouseY+"px";
+            
+            // 4.设置大图移动的距离
+            // 蒙版移动距离/蒙版最大能移动的距离=大图移动的距离/大图最大能移动的距离
+            let maxBigX=oBig.offsetWidth-oBigImg.offsetWidth;
+            console.log(maxBigX);
+            let maxBigY=oBig.offsetHeight-oBigImg.offsetHeight;
+
+             let bigX=mouseX/maxMouseX*maxBigX;
+             let bigY=mouseY/maxMouseY*maxBigY;
+
+            // 5.设置位置给大图
+            oBigImg.style.left=bigX+"px";
+            oBigImg.style.top=bigY+"px";
+
+
+
+
+             
+
+
+
+        }
+        // 获取网页可视区域宽高
+        // oDiv.onscroll=function(){
+        //     function getScreen(){
+        //         let width,height;
+        //         if(window.innerWidth){
+        //             width=window.innerWidth;
+        //             height=window.innerHeight;
+        //         }
+        //         else if(document.compatMode==="BackCompat"){
+        //             width=document.body.clientWidth;
+        //             height=document.body.clientHeight;
+        //         }else{
+        //             width=document.documentElement.clientWidth;
+        //             height=document.documentElement.clientHeight;
+        //         }
+        //     }
+        // }
+        
+        // 获取网页滚动页面的距离
+        // oDiv.onscroll=function(){
+        //     let {x,y}=getScreen();
+
+        //     console.log(x,y);
+
+
+
+
+        //     function getScreen(){
+        //         let x,y;
+        //         if(window.pageXOffset){
+        //             x=window.pageXOffset;
+        //             Y=window.pageYOffset;
+        //         }
+        //         else if(document.compatMode==="BackCompat"){
+        //             y=document.body.scrollTop;
+        //             x=document.body.scrollLeft;
+        //         }else{
+        //             x=document.documentElement.scrollLeft;
+        //             y=document.documentElement.scrollTop;
+        //         }return{
+        //             x:x,
+        //             y:y
+        //         }
+        //     }
+        // }
+    </script>
+</body>
+</html>

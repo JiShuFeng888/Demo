@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/lunbotu.css">
+    <!-- <script src="js/animation.js"></script> -->
+    <!-- 注意导入js文件的方式 -->
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li><img src="images/ad1.jpg" alt=""></li>
+            <li><img src="images/ad2.jpg" alt=""></li>
+            <li><img src="images/ad3.jpg" alt=""></li>
+            <li><img src="images/ad1.jpg" alt=""></li>
+        </ul>
+        <p><span id="left">&lt;</span><span id="right">&gt;</span></p>
+    </div>
+
+<script>
+    let oLeft=document.querySelector("#left");
+    let oBox=document.querySelector(".box");
+    let oRight=document.querySelector("#right");
+    let oUl=document.querySelector("ul");
+    let oLi=document.querySelectorAll("ul>li");
+    // 注意这里要加parseFloat
+    let imgWidth=parseFloat(getComputedStyle(oLi[0]).width);
+    // console.log(imgWidth);
+    let current=0;
+    let timerId=null;
+    
+    oLeft.onclick=function(){
+        current--;
+        if(current<0){
+            current=oLi.length-1;  
+            oUl.style.marginLeft=-current*imgWidth+"px";
+            // 返回第一张图片再执行动画到第二张，无缝衔接
+        }
+        let num=current*imgWidth;
+        // oUl.style.marginLeft=-num+"px";
+        // 注意要加px  
+        linearAnimation(oUl,-num);
+    }
+
+    oRight.onclick=function(){
+        current++;
+        if(current>oLi.length-1){
+            current=0;
+            oUl.style.marginLeft=-current*imgWidth+"px";
+            // 返回第一张图片再执行动画到第二张，无缝衔接
+        }
+        let num=current*imgWidth;
+        // oUl.style.marginLeft=-num+"px";
+        // 注意要加px  
+       linearAnimation(oUl,-num);
+
+    }
+
+    // 不同的定时器要设置不同的id
+    id=setInterval(
+        oRight.onclick=function(){
+        current++;
+        if(current>oLi.length-1){
+            current=0;
+            oUl.style.marginLeft=-current*imgWidth+"px";
+            // 返回第一张图片再执行动画到第二张，无缝衔接
+        }
+        let num=current*imgWidth;
+        // oUl.style.marginLeft=-num+"px";
+        // 注意要加px  
+       linearAnimation(oUl,-num);
+    }
+   ,2000);
+
+    oBox.onmouseenter=function(){
+            clearInterval(id);
+        }
+    oBox.onmouseleave=function(){
+        id=setInterval(function(){
+        current++;
+        if(current>oLi.length-1){
+            current=0;
+            oUl.style.marginLeft=-current*imgWidth+"px";
+            // 返回第一张图片再执行动画到第二张，无缝衔接
+        }
+        let num=current*imgWidth;
+        // oUl.style.marginLeft=-num+"px";
+        // 注意要加px  
+       linearAnimation(oUl,-num);
+    },2000);
+    }
+    
+    function linearAnimation(oSquare,num){
+            clearInterval(timerId);
+            // 防止多次点击按钮没达到定时器关闭的条件出现的bug
+            timerId=setInterval(function(){
+            // let num=500;
+            let startSpace=parseInt(oSquare.style.marginLeft||0);
+            // 设定每次增加步长后的初始值
+
+            // let buchang=num>startSpace?13:-13;
+            // 匀速动画的步长
+            console.log(num);
+            let buchang=(num-startSpace)*0.3;
+            // 缓速动画的步长
+            // 判断方块是向左走还是像右走
+
+            startSpace+=buchang;
+            
+            // if(Math.abs(num-startSpace)<=Math.abs(buchang))
+            // 匀速动画的步长
+            if(Math.abs(Math.floor(buchang))<=1)
+            // 缓速动画的步长
+            {
+                // 由于步长不是整十，所以当方块靠近重点或越过终点的时候要归位，并且关闭定时器停止下来
+                startSpace=num;
+                clearInterval(timerId);
+            }
+
+            oSquare.style.marginLeft=startSpace+"px";
+            // 修改方块的marginleft
+        },50);
+
+    }
+
+</script>
+</body>
+</html>
+

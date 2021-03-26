@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/tools.js"></script>
+    <script src="js/animation.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        p{
+            text-align: center;
+            line-height: 40px;
+            height: 40px;
+            width: 100%;
+        }
+        div{
+            width: 100px;
+            height: 200px;
+            background-color:brown;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+
+</head>
+<body>
+    <div></div>
+    <p>我是第1</p>
+    <p>我是第2</p>
+    <p>我是第3</p>
+    <p>我是第4</p>
+    <p>我是第5</p>
+    <p>我是第6</p>
+    <p>我是第7</p>
+    <p>我是第8</p>
+    <p>我是第9</p>
+    <p>我是第10</p>
+    <p>我是第11</p>
+    <p>我是第12</p>
+    <p>我是第13</p>
+    <p>我是第14</p>
+    <p>我是第15</p>
+    <p>我是第16</p>
+    <p>我是第17</p>
+    <p>我是第18</p>
+    <p>我是第19</p>
+    <p>我是第20</p>
+    <p>我是第21</p>
+    <p>我是第22</p>
+    <p>我是第23</p>
+    <p>我是第24</p>
+    <p>我是第25</p>
+    <p>我是第26</p>
+    <p>我是第27</p>
+    <p>我是第28</p>
+    <p>我是第29</p>
+    <p>我是第30</p>
+    <p>我是第31</p>
+    <p>我是第32</p>
+    <p>我是第33</p>
+    <p>我是第34</p>
+    <p>我是第35</p>
+    <p>我是第36</p>
+    <p>我是第37</p>
+    <p>我是第38</p>
+    <p>我是第39</p>
+    <p>我是第40</p>
+    <p>我是第41</p>
+    <p>我是第42</p>
+    <p>我是第43</p>
+    <p>我是第44</p>
+    <p>我是第45</p>
+    <p>我是第46</p>
+    <p>我是第47</p>
+    <p>我是第48</p>
+    <p>我是第49</p>
+    <p>我是第50</p>
+
+
+    <script>
+        let oDiv=document.querySelector("div");
+        let screenHeight=getScreen().height;
+        let divHeight=oDiv.offsetHeight;
+        let oDivOffsetY=(screenHeight-divHeight)/2;
+        linearAnimation(oDiv,{"top":oDivOffsetY});
+      
+        window.onscroll=function(){
+            let pageScrollY=getPageScroll().y;
+            linearAnimation(oDiv,{"top":oDivOffsetY+pageScrollY});
+        }
+    </script>
+</body>
+</html>

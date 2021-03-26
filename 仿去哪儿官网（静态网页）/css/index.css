@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    background-color: #eee;
+}
+body{
+    min-width: 320px;
+    max-width: 750px;
+    height: 1000px;
+    background-color: #fff;
+    margin: 0 auto;
+}
+/* 头部开始 */
+.header{
+width: 100%;
+}
+.header>img{
+    width: 100%;
+    vertical-align: bottom;
+
+}
+/* 头部结束 */
+/*内容区域开始 */
+
+.main{
+    width: 100%;
+}
+.main .section{
+    height: 100px;
+    display: flex;
+    background-color: red;
+    margin:4px 2px;
+
+}
+.main .section>.col{
+    border-left: 1px solid #fff;
+    box-sizing: border-box;
+    text-align: center;
+    /* flex-grow: 1;
+    flex-shrink: 1; */
+    /* flex-basis:auto默认被内容撑大; 要对其可以改为0% */
+    flex: 1;
+
+}
+.main .section>.col:nth-child(1){
+    border-left: none;
+}
+.main .section>.hotel{
+    margin-top: 15px;
+}
+.main .section>.col>img{
+    margin-top: 15px;
+    width: 42px;
+    height: 46px;
+}
+.main .section>.col>div{
+    height: 50px;
+    line-height: 50px;
+}
+.main .section>.col>div:nth-child(1){
+    border-bottom: 1px solid #fff;
+    box-sizing: border-box;
+}
+.main .section:last-child{
+    height: 50px;
+    line-height: 50px;
+}.main .section:last-child col{
+    border-bottom: none;
+}
+/* 内容区域结束 */
+/* 导航区域开始 */
+.nav{
+    width: 100%;
+    background-color: #666666;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.nav>ul{
+    display:flex;
+    width: 100%;
+}
+.nav>ul>li{
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    flex: 1;
+    background-color:yellow;
+    list-style: none;
+}
+/* 导航区域结束 */
+/* 指引区域开始 */
+.guide>ul{
+    width: 100%;
+    display: flex;
+    height: 150px;
+    background-color:#666666;
+    list-style: none;
+}
+.guide>ul>li{
+    text-align: center;
+    line-height: 150px;
+    flex:1;   
+}
+.guide>ul>li>i{
+    border: 1px solid #000000 ;
+    border-radius: 50%;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+}
+
+/* 指引区域结束 */

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/橱窗效果.css">
+    <script src="js/tools.js"></script>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li><img src="images/img1.jpg" alt=""></li>
+            <li><img src="images/img2.jpg" alt=""></li>
+            <li><img src="images/img3.jpg" alt=""></li>
+            <li><img src="images/img4.jpg" alt=""></li>
+            <li><img src="images/img5.jpg" alt=""></li>
+            <li><img src="images/img6.jpg" alt=""></li>
+            <li><img src="images/img7.jpg" alt=""></li>
+            <li><img src="images/img8.jpg" alt=""></li>
+            <li><img src="images/img9.jpg" alt=""></li>
+        </ul>
+        <div class="bottom">
+            <span></span>
+        </div>
+    </div>
+    <script>
+        let oSpan=document.querySelector("span");
+        let oUl=document.querySelector("ul");
+        let oItems=document.querySelectorAll("ul>li");
+        let oBox=document.querySelector(".box");
+        let oBottom=document.querySelector(".bottom");
+
+        // 1.计算Ul的宽度
+        let oUlWidth=oItems[0].offsetWidth*oItems.length;
+        console.log(oItems[0].offsetWidth);
+        oUl.style.width=oUlWidth+"px";
+        // 2.计算滚动条宽度
+        // 滚动条宽度/滚动条容器宽度=容器宽度/内容宽度
+        let oSpanOffsetX=oBottom.offsetWidth;
+        // 3.设置滚动条宽度
+        oSpan.style.width=oBox.offsetWidth/oUlWidth*oSpanOffsetX+"px";
+
+
+        
+
+        oSpan.onmousedown=function(event){
+            event=event||window.event;
+            // 记录上一次按下滚动条的位置
+            let begin=parseFloat(oSpan.style.left)||0;
+            let x=event.pageX;
+            oSpan.onmousemove=function(event){
+            event=event||window.event;
+            let newX=event.pageX;
+            let offsetX=newX-x+begin;
+            // 安全校验
+            let maxOffsetX=oBottom.offsetWidth-oSpan.offsetWidth;
+            offsetX=offsetX<0?0:offsetX;
+            offsetX=offsetX>maxOffsetX?maxOffsetX:offsetX;
+            oSpan.style.left=offsetX+"px";
+
+            // 设置图片滚动的距离
+            // 滚动条滚动的距离/滚动条最大滚动范围=图片滚动的距离/图片最大能滚动的范围
+            let maxImgOffsetX=oBox.offsetWidth-oUl.offsetWidth;
+            let ImgOffsetX=offsetX/maxOffsetX*maxImgOffsetX;
+            oUl.style.left=ImgOffsetX+"px";
+            }
+        }
+        document.onmouseup=function(){
+            oSpan.onmousemove=null;
+        }
+     
+    </script>
+    
+</body>
+</html>

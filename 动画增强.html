@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/动画增强.css">
+    <script src="js/animation.js"></script>
+</head>
+<body>
+    <!-- <div class="box"></div> -->
+    <div class="box">
+        <div class="top"><img src="images/top.jpg" alt=""></div>
+        <div class="bottom"><img src="images/bottom.jpg" alt=""></div>
+        <span></span>
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+    <script>
+        let oBox=document.querySelector(".box");
+        let oTop=document.querySelector(".top");
+        let oSpan=document.querySelector("span");
+        let oBottom=document.querySelector(".bottom");
+
+        // linearAnimation(oBox,200);
+        // linearAnimation(oBox,{"marginTop":200,"marginLeft": 300});
+        // linearAnimation(oBox,{"marginTop":500,"marginLeft": 300});
+
+        oSpan.onclick=function(){
+            linearAnimation(oTop,{"height":0},function(){
+                 linearAnimation(oBox,{"width":0},function(){
+                     oBox.parentNode.removeChild(oBox);
+                 });
+            });
+
+        }
+        
+
+
+
+
+        
+
+    //     function linearAnimation(oSquare,obj,fn){
+    //         clearInterval(timerId);
+    //         // 防止多次点击按钮没达到定时器关闭的条件出现的bug
+    //         timerId=setInterval(function(){
+    //             let flag=true;
+    //             for(let key in obj){
+    //                 let attr=key;
+    //                 let num=obj[key];
+
+    //                   // let num=500;
+    //         // let startSpace=parseInt(oSquare.style.marginLeft||0);
+    //         let style=getComputedStyle(oSquare);
+    //         let startSpace=parseInt(style[attr])||0;
+        
+    //         // 设定每次增加步长后的初始值
+
+    //         let buchang=num>startSpace?13:-13;
+    //         // 匀速动画的步长
+    //         console.log(num);
+    //         // let buchang=(num-startSpace)*0.3;
+    //         // 缓速动画的步长
+    //         // 判断方块是向左走还是像右走
+    //         startSpace += buchang;
+    //         console.log(startSpace);
+
+            
+    //         if(Math.abs(num-startSpace)>Math.abs(buchang))
+    //         // 匀速动画的步长
+    //         // if(Math.abs(Math.floor(buchang))<=1)
+    //         // 缓速动画的步长
+    //         {
+    //             flag=false;
+
+    //             // 由于步长不是整十，所以当方块靠近重点或越过终点的时候要归位，并且关闭定时器停止下来
+    //         }else{
+    //             startSpace=num;
+    //         }
+    //         oSquare.style[attr]=startSpace+"px";
+    //         // 修改方块的marginleft
+    //         if(flag){
+    //             clearInterval(timerId);
+    //             fn&&fn();
+    //         }
+
+    //         }
+          
+    //     },50);
+
+    // }
+        
+
+
+    //     function linearAnimation(oSquare,num){
+    //         clearInterval(timerId);
+    //         // 防止多次点击按钮没达到定时器关闭的条件出现的bug
+    //         timerId=setInterval(function(){
+    //         // let num=500;
+    //         // let startSpace=parseInt(oSquare.style.marginLeft||0);
+    //         let startSpace=parseInt(getComputedStyle(oBox).marginLeft);
+    //         // 设定每次增加步长后的初始值
+
+    //         // let buchang=num>startSpace?13:-13;
+    //         // 匀速动画的步长
+    //         console.log(num);
+    //         let buchang=(num-startSpace)*0.3;
+    //         // 缓速动画的步长
+    //         // 判断方块是向左走还是像右走
+
+    //         startSpace+=buchang;
+            
+    //         // if(Math.abs(num-startSpace)<=Math.abs(buchang))
+    //         // 匀速动画的步长
+    //         if(Math.abs(Math.floor(buchang))<=1)
+    //         // 缓速动画的步长
+    //         {
+    //             // 由于步长不是整十，所以当方块靠近重点或越过终点的时候要归位，并且关闭定时器停止下来
+    //             startSpace=num;
+    //             clearInterval(timerId);
+    //         }
+    //         oSquare.style.marginLeft=startSpace+"px";
+    //         // 修改方块的marginleft
+    //     },50);
+
+    // }
+    </script>
+</body>
+</html>

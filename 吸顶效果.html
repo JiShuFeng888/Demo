@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/吸顶效果.css">
+    <script src="js/tools.js"></script>
+    <script src="js/animation.js"></script>
+</head>
+<body>
+    <div><img src="images/nba-top.jpg" alt="" id="top"></div>
+    <div><img src="images/nba-nav.jpg" alt="" id="nav"></div>
+    <div><img src="images/nba-body.jpg" alt="" id="body"></div>
+    <div class="box"></div>
+    
+
+
+
+
+    <script>
+        let oTop=document.querySelector("#top");
+        let oNav=document.querySelector("#nav");
+        let oBox=document.querySelector(".box");
+        
+        window.onscroll=function(){
+            let offsetY=getPageScroll().y;
+            if(offsetY>=oTop.offsetHeight){
+                oNav.style.position="fixed";
+                oNav.style.left="0px";
+                oNav.style.top="0px";
+            }else{
+                oNav.style.position="";
+            }
+            if(offsetY>200){
+                oBox.style.display="block";
+            }else{
+                oBox.style.display="none";
+
+            }
+        }
+
+        let timerId=null;
+        oBox.onclick=function(){
+            clearInterval(timerId); 
+            timerId=setInterval(function(){
+                let begin=getPageScroll().y;
+                let target=0;
+                let step=(target-begin)*0.3;
+                begin+=step;
+                if(Math.abs(Math.floor(step))<=1){
+                    clearInterval(timerId);
+                    window.scrollTo(0,0);
+                    return;
+                }
+                window.scrollTo(0,begin);
+            },50)
+        }
+
+    </script>
+</body>
+</html>
